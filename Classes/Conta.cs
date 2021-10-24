@@ -49,6 +49,24 @@ namespace DIO.Bank
             string retorno = $"TipoConta: {this.TipoConta}\nNome: {this.Nome}\nSaldo: {this.Saldo}\nCredito: {this.Credito}";
             return retorno;
         }
+
+        public static string ObterOpcaoUsuari()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("App Bancário iniciado");
+            Console.WriteLine("Digite sua opção");
+            Console.WriteLine("1 - Litar Contas");
+            Console.WriteLine("2 - Inserir nova Conta");
+            Console.WriteLine("3 - Transferência");
+            Console.WriteLine("4 - Saque");
+            Console.WriteLine("5 - Depósito");
+            Console.WriteLine("C - Limpar a tela");
+            Console.WriteLine("X - Sair");
+
+            string Opcao = Console.ReadLine().ToUpper();
+            Console.WriteLine();
+            return Opcao;
+        }
     }
 
 }
