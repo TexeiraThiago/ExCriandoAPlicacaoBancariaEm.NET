@@ -19,11 +19,14 @@ namespace DIO.Bank
                     case "2":
                         InserirConta();
                         break;
+                    case "3":
+                        Transferir();
+                        break;
                     case "4":
-                        // Sacar();
+                        Sacar();
                         break;
                     case "5":
-                        // Depositar();
+                        Depositar();
                         break;
                     case "C":
                         Console.Clear();
@@ -35,6 +38,42 @@ namespace DIO.Bank
             }
             Console.WriteLine("Obrigado por obter nosso serviço o desenvolvedor Agradece!");
             Console.ReadLine();
+        }
+
+        private static void Transferir()
+        {
+            System.Console.Write("Digite o número da conta de Origem: ");
+            int contaOrigem = int.Parse(Console.ReadLine());
+
+            System.Console.WriteLine("Digite o número da conta de Destino");
+            int contaDestino = int.Parse(Console.ReadLine());
+
+            System.Console.WriteLine("Digite o valor que deseja transferir: ");
+            double valorTransferencia = double.Parse(Console.ReadLine());
+
+            listContas[contaDestino].Transferir(valorTransferencia, listContas[contaDestino]);
+        }
+
+        private static void Depositar()
+        {
+            System.Console.Write("Digite o número da conta: ");
+            int indiceConta = int.Parse(Console.ReadLine());
+
+            System.Console.Write("Digite o valor que deseja Depositar: ");
+            double entradaValor = double.Parse(Console.ReadLine());
+
+            listContas[indiceConta].Depositar(entradaValor);
+        }
+
+        private static void Sacar()
+        {
+            System.Console.Write("Digite o número da conta: ");
+            int indiceConta = int.Parse(Console.ReadLine());
+
+            System.Console.Write("Digite o valor que deseja sacar: ");
+            double entradaValor = double.Parse(Console.ReadLine());
+
+            listContas[indiceConta].Sacar(entradaValor);
         }
 
         private static void ListarConta()
@@ -55,18 +94,18 @@ namespace DIO.Bank
 
         private static void InserirConta()
         {
-            System.Console.WriteLine("Insira uma nova Conta");
+            System.Console.Write("Insira uma nova Conta: ");
 
-            System.Console.WriteLine("Digite 1 para Pessoa Física e 2 pata Pessoa Jurídica");
+            System.Console.Write("Digite 1 para Pessoa Física e 2 pata Pessoa Jurídica: ");
             int entrada = int.Parse(Console.ReadLine());
 
-            System.Console.WriteLine("Digite o nome do Cliente");
+            System.Console.Write("Digite o nome do Cliente: ");
             string entradaNome = Console.ReadLine();
 
-            System.Console.WriteLine("Digite o Saldo Inicial:");
+            System.Console.Write("Digite o Saldo Inicial: ");
             double entradaSaldo = double.Parse(Console.ReadLine());
 
-            System.Console.WriteLine("Digite o Crédito Inicial:");
+            System.Console.Write("Digite o Crédito Inicial: ");
             double entradaCredito = double.Parse(Console.ReadLine());
 
             Conta novaConta = new Conta
@@ -92,9 +131,9 @@ namespace DIO.Bank
             Console.WriteLine("5 - Depósito");
             Console.WriteLine("C - Limpar a tela");
             Console.WriteLine("X - Sair");
+            Console.WriteLine(" ");
 
             string Opcao = Console.ReadLine().ToUpper();
-            Console.WriteLine();
             return Opcao;
         }
     }
