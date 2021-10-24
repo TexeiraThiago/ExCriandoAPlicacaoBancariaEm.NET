@@ -46,7 +46,7 @@ namespace DIO.Bank
         //Override serve para sobrescrever um método que já existe
         public override string ToString()
         {
-            string retorno = $"TipoConta: {this.TipoConta}\nNome: {this.Nome}\nSaldo: {this.Saldo}\nCredito: {this.Credito}";
+            string retorno = $"\nTipoConta: {this.TipoConta}\nNome: {this.Nome}\nSaldo: {this.Saldo}\nCredito: {this.Credito}";
             return retorno;
         }
 

@@ -14,7 +14,7 @@ namespace DIO.Bank
                 switch (opcaoDoUsuario)
                 {
                     case "1":
-                        // ListarConta();
+                        ListarConta();
                         break;
                     case "2":
                         InserirConta();
@@ -37,6 +37,22 @@ namespace DIO.Bank
             Console.ReadLine();
         }
 
+        private static void ListarConta()
+        {
+            Console.WriteLine();
+            if (listContas.Count == 0)
+            {
+                System.Console.WriteLine("Não há nenhuma conta cadastrada");
+                return;
+            }
+            for (int i = 0; i < listContas.Count; i++)
+            {
+                Conta conta = listContas[i];
+                System.Console.Write("#{0} - ", i);
+                System.Console.WriteLine(conta);
+            }
+        }
+
         private static void InserirConta()
         {
             System.Console.WriteLine("Insira uma nova Conta");
@@ -44,7 +60,7 @@ namespace DIO.Bank
             System.Console.WriteLine("Digite 1 para Pessoa Física e 2 pata Pessoa Jurídica");
             int entrada = int.Parse(Console.ReadLine());
 
-            System.Console.WriteLine("Digite o nome do Cliete");
+            System.Console.WriteLine("Digite o nome do Cliente");
             string entradaNome = Console.ReadLine();
 
             System.Console.WriteLine("Digite o Saldo Inicial:");
